@@ -1,0 +1,32 @@
+{
+  "name": "DRF React-redux Webapp",
+  "description": "DRF based React-redux single page webapp",
+  "keywords": [
+    "react",
+    "webpack",
+    "boilerplate",
+    "production",
+    "DRF",
+    "python",
+    "less",
+    "hot",
+    "reload"
+  ],
+  "website": "https://github.com/vivek-555/omniperusal",
+  "logo": "http://i.imgur.com/ydf7myp.png",
+  "addons": ["heroku-postgresql:hobby-dev"],
+  "env": {
+    "BUILDPACK_URL": "https://github.com/ddollar/heroku-buildpack-multi",
+    "NODE_ENV": {
+      "description": "Set the `NODE_ENV` environment variable to `production` to disable debugging etc.",
+      "value": "production"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "By default heroku is not installing `devDependencies`, so let's do that.",
+      "value": "false"
+    }
+  },
+  "scripts": {
+    "postdeploy": "python server/initdb.py"
+  }
+}

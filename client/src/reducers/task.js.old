@@ -1,0 +1,72 @@
+/**************************************************************************
+ * Tasks
+ **************************************************************************/
+const defaultTasksState = {
+    tasks: [],
+    isLoading: false,
+    error: undefined
+};
+
+const tasksReducer = (state = defaultTasksState, action) => {
+    switch (action.type) {
+        case 'GET_TASKS':
+            return {
+                ...state,
+                isLoading: true,
+                error: undefined
+            };
+        case 'GET_TASKS_SUCCESS':
+            return {
+                ...state,
+                isLoading: false,
+                error: undefined,
+                tasks: action.items || []
+            };
+        case 'GET_TASKS_FAILURE':
+            return {
+                ...state,
+                isLoading: false,
+                error: action.hasErrored,
+            };
+        default:
+            return state;
+    }
+};
+
+
+/**************************************************************************
+ * Task
+ **************************************************************************/
+const defaultTaskState = {
+    tasks: [],
+    isLoading: false,
+    error: undefined
+};
+
+const taskReducer = (state = defaultTaskState, action) => {
+    switch (action.type) {
+        case 'GET_TASK':
+            return {
+                ...state,
+                isLoading: true,
+                error: undefined
+            };
+        case 'GET_TASK_SUCCESS':
+            return {
+                ...state,
+                isLoading: false,
+                error: undefined,
+                task: action.item || {}
+            };
+        case 'GET_TASK_FAILURE':
+            return {
+                ...state,
+                isLoading: false,
+                error: action.hasErrored,
+            };
+        default:
+            return state;
+    }
+};
+
+export default tasksReducer;
